@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    border-patrol (0.0.2)
+    border-patrol (0.0.3)
       rails (~> 3.2)
 
 GEM
@@ -38,12 +38,6 @@ GEM
     builder (3.0.4)
     coderay (1.0.9)
     columnize (0.3.6)
-    coveralls (0.7.0)
-      multi_json (~> 1.3)
-      rest-client
-      simplecov (>= 0.7)
-      term-ansicolor
-      thor
     debugger (1.6.2)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -95,8 +89,6 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -105,21 +97,14 @@ GEM
     rspec-expectations (2.14.3)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.4)
-    simplecov (0.7.1)
-      multi_json (~> 1.0)
-      simplecov-html (~> 0.7.1)
-    simplecov-html (0.7.1)
     slop (3.4.6)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    term-ansicolor (1.2.2)
-      tins (~> 0.8)
     thor (0.18.1)
     tilt (1.4.1)
-    tins (0.12.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -130,7 +115,6 @@ PLATFORMS
 
 DEPENDENCIES
   border-patrol!
-  coveralls
   pry
   pry-debugger
   rake
