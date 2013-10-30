@@ -40,6 +40,7 @@ The following parameters are supported:
 
 * **terminate**: whether to terminate running server, when there's a new pending migration (default: false).
 * **ignore_console**: whether to perform the tests, when running in the console, or ignore it (default: true).
+* **polling_period**: pending migration polling time (in seconds). Only relevant if **terminate** was set to true (default: 30 seconds).
 
 ## License
 

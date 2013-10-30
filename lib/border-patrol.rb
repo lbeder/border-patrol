@@ -1,4 +1,5 @@
 require 'active_record'
+require 'timers'
 require 'border_patrol/configuration'
 
 module BorderPatrol
@@ -8,12 +9,21 @@ module BorderPatrol
 
   def configure
     self.configuration ||= Configuration.new
-
     yield configuration if block_given?
 
+    # Don't perform the tests in console mode, unless requested.
     return if console? && configuration.ignore_console
 
+    # Perform initial test.
     abort_if_pending
+
+    # Unless requested otherwise, start polling for new migrations and if new migrations were pended
+    # indeed - terminate the server.
+    start if configuration.terminate
+  end
+
+  at_exit do
+    @thread.exit if @thread
   end
 
   private
@@ -28,11 +38,28 @@ module BorderPatrol
       pending_migrations.each do |pending_migration|
         puts '  %4d %s' % [pending_migration.version, pending_migration.name]
       end
-      abort %{Run `rake db:migrate` to update your database then try again.}
+      puts 'Run `rake db:migrate` to update your database then try again.'
+
+      stop
     end
   end
 
   def console?
     defined?(Rails::Console)
+  end
+
+  def start
+    @thread = Thread.new do
+      @timers = Timers.new
+      @timers.every(configuration.polling_period) { abort_if_pending }
+
+      loop do
+        @timers.wait
+      end
+    end
+  end
+
+  def stop
+    abort
   end
 end
