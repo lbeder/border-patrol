@@ -2,13 +2,13 @@ $:.push File.expand_path('../lib', __FILE__)
 require 'border_patrol/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'border_patrol'
+  s.name        = 'border-patrol'
   s.version     = BorderPatrol::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Leonid Beder']
   s.email       = ['leonid.beder@gmail.com']
   s.license     = 'MIT'
-  s.homepage    = 'https://github.com/lbeder/border_patrol'
+  s.homepage    = 'https://github.com/lbeder/border-patrol'
   s.summary     = 'Prevents your Rails server from starting and running, while there are pending DB migrations.'
   s.description = 'Prevents your Rails server from starting and running, while there are pending DB migrations.'
 

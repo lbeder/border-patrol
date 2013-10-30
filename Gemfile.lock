@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    border_patrol (0.0.2)
+    border-patrol (0.0.2)
       rails (~> 3.2)
 
 GEM
@@ -129,7 +129,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  border_patrol!
+  border-patrol!
   coveralls
   pry
   pry-debugger
