@@ -27,6 +27,20 @@ Otherwise install the gem:
 $ gem install border_patrol
 ```
 
+## Usage
+
+In order to start using this gem, you'd need to add an initializer in your up:
+
+``` ruby
+BorderPatrol.configure do |config|
+end if defined?(BorderPatrol)
+```
+
+## Configuration
+The following parameters are supported:
+
+* **terminate**: whether to terminate running server, when there's a new pending migration (default: false).
+
 ## License
 
 The MIT License (MIT)
