@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.email       = ['leonid.beder@gmail.com']
   s.license     = 'MIT'
   s.homepage    = 'https://github.com/lbeder/border-patrol'
-  s.summary     = 'Prevents your Rails server from starting and running, while there are pending DB migrations.'
-  s.description = 'Prevents your Rails server from starting and running, while there are pending DB migrations.'
+  s.summary     = 'Prevents your rails server from running and/or starting, while there are any pending DB migrations'
+  s.description = 'Prevents your rails server from running and/or starting, while there are any pending DB migrations.'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

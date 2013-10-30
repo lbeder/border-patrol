@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/lbeder/border-patrol.png)](https://travis-ci.org/lbeder/border-patrol)
 [![Dependency Status](https://gemnasium.com/lbeder/border-patrol.png)](https://gemnasium.com/lbeder/border-patrol)
 
-Prevents your Rails server from starting and running, while there are pending DB migrations.
+Prevents your rails server from running and/or starting, while there are any pending DB migrations.
 
 ## Setup
 
