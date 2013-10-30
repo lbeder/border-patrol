@@ -28,10 +28,11 @@ $ gem install border-patrol
 
 ## Usage
 
-In order to start using this gem, you'd need to add an initializer in your up:
+In order to start using this gem, you'd need to add an initializer to your app:
 
 ``` ruby
 BorderPatrol.configure do |config|
+  ...
 end if defined?(BorderPatrol)
 ```
 
