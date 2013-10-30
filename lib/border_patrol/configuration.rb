@@ -1,6 +1,4 @@
 module BorderPatrol
-  Redis = ::Redis
-
   class Configuration
     attr_accessor :terminate
 

@@ -1,3 +1,6 @@
+require 'active_record'
+require 'border_patrol/configuration'
+
 module BorderPatrol
   extend self
 
@@ -24,6 +27,7 @@ module BorderPatrol
       end
       abort %{Run `rake db:migrate` to update your database then try again.}
     end
+  rescue ActiveRecord::ConnectionNotEstablished
   end
 end
 
