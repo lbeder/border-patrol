@@ -3,13 +3,13 @@
 [![Gem Version](https://badge.fury.io/rb/border-patrol.png)](http://badge.fury.io/rb/border-patrol)
 [![Build Status](https://travis-ci.org/lbeder/border-patrol.png)](https://travis-ci.org/lbeder/border-patrol)
 [![Dependency Status](https://gemnasium.com/lbeder/border-patrol.png)](https://gemnasium.com/lbeder/border-patrol)
-[![Coverage Status](https://coveralls.io/repos/lbeder/border-patrol/badge.png)](https://coveralls.io/r/lbeder/rediska)
+[![Coverage Status](https://coveralls.io/repos/lbeder/border-patrol/badge.png)](https://coveralls.io/r/lbeder/border-patrol)
 
 Prevents your Rails server from starting and running, while there are pending DB migrations.
 
 ## Setup
 
-If you are using bundler add rediska to your Gemfile:
+If you are using bundler add border-patrol to your Gemfile:
 
 ``` ruby
 gem 'border-patrol'
