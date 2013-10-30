@@ -29,6 +29,6 @@ module BorderPatrol
     end
   rescue ActiveRecord::ConnectionNotEstablished
   end
-end
 
-BorderPatrol.configure
+  BorderPatrol.configure
+end
