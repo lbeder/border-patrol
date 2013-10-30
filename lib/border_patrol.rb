@@ -31,4 +31,4 @@ module BorderPatrol
   end
 end
 
-BorderPatrol.configure {}
+BorderPatrol.configure
