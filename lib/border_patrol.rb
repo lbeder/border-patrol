@@ -9,7 +9,7 @@ module BorderPatrol
   def configure
     self.configuration ||= Configuration.new
 
-    yield configuration
+    yield configuration if block_given?
 
     abort_if_pending
   end
