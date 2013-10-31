@@ -14,6 +14,9 @@ module BorderPatrol
     # Don't perform the tests in console mode, unless requested.
     return if console? && configuration.ignore_console
 
+    # Don't perform the tests during `rake db:migrate`.
+    return if during_db_migrate?
+
     # Perform initial test.
     abort_if_pending
 
@@ -46,6 +49,10 @@ module BorderPatrol
 
   def console?
     defined?(Rails::Console)
+  end
+
+  def during_db_migrate?
+    File.basename($0) == 'rake' && ARGV.include?('db:migrate')
   end
 
   def start
