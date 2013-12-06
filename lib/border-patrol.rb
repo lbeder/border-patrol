@@ -5,6 +5,21 @@ require 'border_patrol/configuration'
 module BorderPatrol
   extend self
 
+  RAKE_COMMANDS_TO_IGNORE = %w[
+    db:create
+    db:drop
+    db:fixtures:load
+    db:migrate
+    db:migrate:status
+    db:rollback
+    db:schema:dump
+    db:schema:load
+    db:seed
+    db:setup
+    db:structure:dump
+    db:version
+  ].freeze
+
   attr_accessor :configuration
 
   def configure
@@ -52,7 +67,7 @@ module BorderPatrol
   end
 
   def during_db?
-    rake_command?('db:migrate') || rake_command?('db:rollback')
+    RAKE_COMMANDS_TO_IGNORE.any? { |command| rake_command?(command) }
   end
 
   def rake_command?(command)
