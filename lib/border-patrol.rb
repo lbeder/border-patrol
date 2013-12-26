@@ -5,21 +5,6 @@ require 'border_patrol/configuration'
 module BorderPatrol
   extend self
 
-  RAKE_COMMANDS_TO_IGNORE = %w[
-    db:create
-    db:drop
-    db:fixtures:load
-    db:migrate
-    db:migrate:status
-    db:rollback
-    db:schema:dump
-    db:schema:load
-    db:seed
-    db:setup
-    db:structure:dump
-    db:version
-  ].freeze
-
   attr_accessor :configuration
 
   def configure
@@ -27,10 +12,10 @@ module BorderPatrol
     yield configuration if block_given?
 
     # Don't perform the tests in console mode, unless requested.
-    return if console? && configuration.ignore_console
+    return if console? &&  configuration.ignore_console
 
-    # Don't perform the tests during DB operations.
-    return if during_db?
+    # Don't perform the tests during rake taskd.
+    return if rake?
 
     # Perform initial test.
     abort_if_pending
@@ -66,12 +51,8 @@ module BorderPatrol
     defined?(Rails::Console)
   end
 
-  def during_db?
-    RAKE_COMMANDS_TO_IGNORE.any? { |command| rake_command?(command) }
-  end
-
-  def rake_command?(command)
-    File.basename($0) == 'rake' && ARGV.include?(command)
+  def rake?
+    $rails_rake_task
   end
 
   def start
