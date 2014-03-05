@@ -31,10 +31,12 @@ module BorderPatrol
 
   private
   def pending_migrations
-    if ActiveRecord::Migrator.respond_to?(:open)
-      ActiveRecord::Migrator.open(ActiveRecord::Migrator.migrations_paths).pending_migrations
-    else
-      ActiveRecord::Migrator.new(:up, ActiveRecord::Migrator.migrations_paths).pending_migrations
+    Rails.logger.quietly do
+      if ActiveRecord::Migrator.respond_to?(:open)
+        ActiveRecord::Migrator.open(ActiveRecord::Migrator.migrations_paths).pending_migrations
+      else
+        ActiveRecord::Migrator.new(:up, ActiveRecord::Migrator.migrations_paths).pending_migrations
+      end
     end
   end
 
