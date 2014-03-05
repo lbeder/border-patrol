@@ -31,7 +31,11 @@ module BorderPatrol
 
   private
   def pending_migrations
-    ActiveRecord::Migrator.new(:up, ActiveRecord::Migrator.migrations_paths).pending_migrations
+    if ActiveRecord::Migrator.respond_to?(:open)
+      ActiveRecord::Migrator.open(ActiveRecord::Migrator.migrations_paths).pending_migrations
+    else
+      ActiveRecord::Migrator.new(:up, ActiveRecord::Migrator.migrations_paths).pending_migrations
+    end
   end
 
   def abort_if_pending
