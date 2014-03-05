@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    border-patrol (0.1.1)
+    border-patrol (0.1.2)
       rails (>= 3)
       timers
 
