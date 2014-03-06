@@ -58,7 +58,7 @@ module BorderPatrol
   end
 
   def rake?
-    $rails_rake_task
+    File.basename($0) == 'rake'
   end
 
   def start
