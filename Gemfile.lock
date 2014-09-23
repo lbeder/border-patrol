@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    border-patrol (0.1.9)
+    border-patrol (0.1.10)
       rails (>= 3)
-      timers (~> 1.1.0)
+      timers
 
 GEM
   remote: http://rubygems.org/
@@ -39,6 +39,7 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     hike (1.2.3)
+    hitimes (1.2.2)
     i18n (0.6.11)
     json (1.8.1)
     mail (2.6.1)
@@ -91,7 +92,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    timers (1.1.0)
+    timers (4.0.1)
+      hitimes
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
 
