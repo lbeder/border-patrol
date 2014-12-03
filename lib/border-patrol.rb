@@ -12,9 +12,9 @@ module BorderPatrol
     yield configuration if block_given?
 
     # Don't perform the tests in console mode, unless requested.
-    return if console? &&  configuration.ignore_console
+    return if console? && configuration.ignore_console
 
-    # Don't perform the tests during rake taskd.
+    # Don't perform the tests during rake tasks.
     return if rake?
 
     # Perform initial test.
@@ -30,6 +30,7 @@ module BorderPatrol
   end
 
   private
+
   def pending_migrations
     Rails.logger.quietly do
       if ActiveRecord::Migrator.respond_to?(:open)
